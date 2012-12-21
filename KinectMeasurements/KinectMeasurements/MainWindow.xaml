@@ -1,0 +1,12 @@
+﻿<Window x:Class="KinectMeasurements.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="KinectMeasurements" Height="768" Width="1024" 
+        Loaded="Window_Loaded" Closing="Window_Closing">
+    <Grid>
+        <TextBox x:Name="tbStatusText" HorizontalAlignment="Left" Height="23" Margin="29,29,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" IsEnabled="False"/>
+        <Canvas x:Name="StickMen" Width="600" Height="500" HorizontalAlignment="Right" VerticalAlignment="Bottom"/>
+        <Label Content="Distance" HorizontalAlignment="Left" Margin="29,77,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="tbDistance" HorizontalAlignment="Left" Height="23" Margin="101,80,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+    </Grid>
+</Window>
