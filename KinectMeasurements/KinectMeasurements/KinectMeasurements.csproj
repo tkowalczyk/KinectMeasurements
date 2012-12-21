@@ -91,6 +91,12 @@
     </None>
     <AppDesigner Include="Properties\" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\KinectMeasurementsLib\KinectMeasurementsLib.csproj">
+      <Project>{b1fdf1c9-9cba-4a14-a688-64f1dafcb5cc}</Project>
+      <Name>KinectMeasurementsLib</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

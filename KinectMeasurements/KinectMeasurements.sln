@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KinectMeasurements", "KinectMeasurements\KinectMeasurements.csproj", "{B526261C-CC43-4111-A6D6-E683A1F205F7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KinectMeasurementsLib", "KinectMeasurementsLib\KinectMeasurementsLib.csproj", "{B1FDF1C9-9CBA-4A14-A688-64F1DAFCB5CC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -13,6 +15,10 @@ Global
 		{B526261C-CC43-4111-A6D6-E683A1F205F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B526261C-CC43-4111-A6D6-E683A1F205F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B526261C-CC43-4111-A6D6-E683A1F205F7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B1FDF1C9-9CBA-4A14-A688-64F1DAFCB5CC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B1FDF1C9-9CBA-4A14-A688-64F1DAFCB5CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B1FDF1C9-9CBA-4A14-A688-64F1DAFCB5CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B1FDF1C9-9CBA-4A14-A688-64F1DAFCB5CC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

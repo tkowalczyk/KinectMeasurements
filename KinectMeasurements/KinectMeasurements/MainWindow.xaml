@@ -8,5 +8,6 @@
         <Canvas x:Name="StickMen" Width="600" Height="500" HorizontalAlignment="Right" VerticalAlignment="Bottom"/>
         <Label Content="Distance" HorizontalAlignment="Left" Margin="29,77,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="tbDistance" HorizontalAlignment="Left" Height="23" Margin="101,80,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Label x:Name="Logger" FontSize="50" HorizontalAlignment="Center" Margin="29,77,0,0" VerticalAlignment="Top" RenderTransformOrigin="-2.8,0.6"/>
     </Grid>
 </Window>

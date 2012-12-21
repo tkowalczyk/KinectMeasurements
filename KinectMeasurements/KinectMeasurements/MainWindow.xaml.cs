@@ -1,17 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+using KinectMeasurementsLib;
 using Microsoft.Kinect;
 
 namespace KinectMeasurements
@@ -80,6 +71,10 @@ namespace KinectMeasurements
         }
         #endregion
 
+        Vector3 a1;
+        Vector3 a2;
+        Vector3 a3;
+
         #region Windows events
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
@@ -112,6 +107,7 @@ namespace KinectMeasurements
                 {
                     this.sensor.Start();
                     this.tbStatusText.Text = Properties.Resources.KinectConnected;
+                    //this.sensor.ElevationAngle = 0;
                 }
                 catch (IOException)
                 {
@@ -168,7 +164,17 @@ namespace KinectMeasurements
                                 (skeleton.Position.Y * skeleton.Position.Y) +
                                 (skeleton.Position.Z * skeleton.Position.Z);
 
-                            tbDistance.Text = distance2.ToString();
+                            a1 = new Vector3(skeleton.Joints[JointType.ElbowLeft].Position.X, skeleton.Joints[JointType.ElbowLeft].Position.Y, skeleton.Joints[JointType.ElbowLeft].Position.Z);
+                            a2 = new Vector3(skeleton.Joints[JointType.ShoulderLeft].Position.X, skeleton.Joints[JointType.ShoulderLeft].Position.Y, skeleton.Joints[JointType.ShoulderLeft].Position.Z);
+                            a3 = new Vector3(skeleton.Joints[JointType.WristLeft].Position.X, skeleton.Joints[JointType.WristLeft].Position.Y, skeleton.Joints[JointType.WristLeft].Position.Z);
+
+                            Vector3 b1 = a3 - a1;
+                            Vector3 b2 = a2 - a1;
+
+                            b1.Normalize();
+                            b2.Normalize();
+
+                            Logger.Content = Math.Round((KinectMeasurementsTools.AngleBetweenTwoVectors(b1, b2) * 180 / Math.PI), 2).ToString();
 
                             // Is the new distance squared closer than the nearest so far?
                             if (distance2 < nearestDistance2)
