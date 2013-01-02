@@ -6,8 +6,13 @@ using Microsoft.Kinect;
 
 namespace KinectMeasurementsLib
 {
+    /// <summary>
+    /// Set of tools and extension methods to measure skeletons
+    /// @author Tomasz Kowalczyk http://tomek.kownet.info
+    /// </summary>
     public static class KinectMeasurementsTools
     {
+        #region Distance
         /// <summary>
         /// Returns the distance of tracked skeleton from Kinect device
         /// </summary>
@@ -48,14 +53,47 @@ namespace KinectMeasurementsLib
                 Math.Pow((skeleton.Joints[firstJointType].Position.Z - skeleton.Joints[secondJointType].Position.Z), 2)
                 );
         }
+        #endregion
 
+        #region Angles
+        /// <summary>
+        /// Measure angle between joints
+        /// </summary>
+        /// <param name="skeleton">Skeleton</param>
+        /// <param name="centerJoint">joint which is in the middle</param>
+        /// <param name="topJoint">joint which is on top</param>
+        /// <param name="bottomJoint">joint which is on bottom</param>
+        /// <returns>Angle in degrees</returns>
+        public static float AngleBetweenJoints(this Skeleton skeleton, JointType centerJoint, JointType topJoint, JointType bottomJoint)
+        {
+            Vector3 centerJointCoord = new Vector3(skeleton.Joints[centerJoint].Position.X, skeleton.Joints[centerJoint].Position.Y, skeleton.Joints[centerJoint].Position.Z);
+            Vector3 topJointCoord = new Vector3(skeleton.Joints[topJoint].Position.X, skeleton.Joints[topJoint].Position.Y, skeleton.Joints[topJoint].Position.Z);
+            Vector3 bottomJointCoord = new Vector3(skeleton.Joints[bottomJoint].Position.X, skeleton.Joints[bottomJoint].Position.Y, skeleton.Joints[bottomJoint].Position.Z);
+
+            Vector3 firstVector = bottomJointCoord - centerJointCoord;
+            Vector3 secondVector = topJointCoord - centerJointCoord;
+
+            return AngleBetweenTwoVectors(firstVector, secondVector);
+        }
+
+        /// <summary>
+        /// Measure angle between two vectors in 3D space.
+        /// </summary>
+        /// <param name="vectorA">first Vector3</param>
+        /// <param name="vectorB">second Vector3</param>
+        /// <returns>Angle in degrees</returns>
         public static float AngleBetweenTwoVectors(Vector3 vectorA, Vector3 vectorB)
         {
+            vectorA.Normalize();
+            vectorB.Normalize();
+
             float dotProduct = 0.0f;
+
             dotProduct = Vector3.Dot(vectorA, vectorB);
 
-            return (float)Math.Acos(dotProduct);
+            return (float)Math.Round((Math.Acos(dotProduct) * 180 / Math.PI), 2);
         }
+        #endregion
 
         #region Skeleton height
         // from http://www.codeproject.com/Articles/380152/Kinect-for-Windows-Find-user-height-accurately

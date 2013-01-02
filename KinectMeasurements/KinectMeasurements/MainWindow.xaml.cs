@@ -71,10 +71,6 @@ namespace KinectMeasurements
         }
         #endregion
 
-        Vector3 a1;
-        Vector3 a2;
-        Vector3 a3;
-
         #region Windows events
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
@@ -164,17 +160,8 @@ namespace KinectMeasurements
                                 (skeleton.Position.Y * skeleton.Position.Y) +
                                 (skeleton.Position.Z * skeleton.Position.Z);
 
-                            a1 = new Vector3(skeleton.Joints[JointType.ElbowLeft].Position.X, skeleton.Joints[JointType.ElbowLeft].Position.Y, skeleton.Joints[JointType.ElbowLeft].Position.Z);
-                            a2 = new Vector3(skeleton.Joints[JointType.ShoulderLeft].Position.X, skeleton.Joints[JointType.ShoulderLeft].Position.Y, skeleton.Joints[JointType.ShoulderLeft].Position.Z);
-                            a3 = new Vector3(skeleton.Joints[JointType.WristLeft].Position.X, skeleton.Joints[JointType.WristLeft].Position.Y, skeleton.Joints[JointType.WristLeft].Position.Z);
-
-                            Vector3 b1 = a3 - a1;
-                            Vector3 b2 = a2 - a1;
-
-                            b1.Normalize();
-                            b2.Normalize();
-
-                            Logger.Content = Math.Round((KinectMeasurementsTools.AngleBetweenTwoVectors(b1, b2) * 180 / Math.PI), 2).ToString();
+                            Logger.Content = skeleton.AngleBetweenJoints(JointType.Spine, JointType.AnkleLeft, JointType.Head).ToString();
+                            //Logger.Content = skeleton.AngleBetweenJoints(JointType.ElbowLeft, JointType.ShoulderLeft, JointType.WristLeft).ToString();
 
                             // Is the new distance squared closer than the nearest so far?
                             if (distance2 < nearestDistance2)
