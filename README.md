@@ -3,7 +3,7 @@ KinectMeasurements
 
 Set of tools and extension methods to measure skeletons. To use with Kinect for Windows SDK, written in C#.
 
-**This tools help you to measure:**
+**This tools help you measure:**
 
 - distance to the skeleton,
 - distance to the specific joint,
