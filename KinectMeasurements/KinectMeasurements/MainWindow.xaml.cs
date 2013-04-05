@@ -162,6 +162,10 @@ namespace KinectMeasurements
 
                             Logger.Content = skeleton.AngleBetweenJoints(JointType.Spine, JointType.AnkleLeft, JointType.Head).ToString();
                             //Logger.Content = skeleton.AngleBetweenJoints(JointType.ElbowLeft, JointType.ShoulderLeft, JointType.WristLeft).ToString();
+                            
+                            xTbCor.Text = (skeleton.Joints[JointType.HipCenter].Position.X * 100).ToString();
+                            yTbCor.Text = (skeleton.Joints[JointType.HipCenter].Position.Y * 100).ToString();
+                            zTbCor.Text = (skeleton.Joints[JointType.HipCenter].Position.Z * 100).ToString();
 
                             // Is the new distance squared closer than the nearest so far?
                             if (distance2 < nearestDistance2)

@@ -95,6 +95,18 @@ namespace KinectMeasurementsLib
         }
         #endregion
 
+        /// <summary>
+        /// Returns true if tracked Skeleton has jumped
+        /// </summary>
+        /// <param name="skeleton"></param>
+        /// <returns></returns>
+        public static bool HasJumped(this Skeleton skeleton)
+        {
+            if (skeleton.Joints[JointType.FootLeft].Position.X > 0)
+                return true;
+            else return false;
+        }
+
         #region Skeleton height
         // from http://www.codeproject.com/Articles/380152/Kinect-for-Windows-Find-user-height-accurately
 

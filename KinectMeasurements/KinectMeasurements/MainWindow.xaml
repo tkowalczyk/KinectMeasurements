@@ -9,5 +9,11 @@
         <Label Content="Distance" HorizontalAlignment="Left" Margin="29,77,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="tbDistance" HorizontalAlignment="Left" Height="23" Margin="101,80,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
         <Label x:Name="Logger" FontSize="50" HorizontalAlignment="Center" Margin="29,77,0,0" VerticalAlignment="Top" RenderTransformOrigin="-2.8,0.6"/>
+        <Label x:Name="xLabCor" Content="X" HorizontalAlignment="Left" Margin="29,175,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="yLabCor" Content="Y" HorizontalAlignment="Left" Margin="29,262,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="zLabCor" Content="Z" HorizontalAlignment="Left" Margin="29,343,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="xTbCor" HorizontalAlignment="Left" Height="60" Margin="60,146,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="161" FontSize="50"/>
+        <TextBox x:Name="zTbCor" HorizontalAlignment="Left" Height="60" Margin="60,316,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="161" FontSize="50"/>
+        <TextBox x:Name="yTbCor" HorizontalAlignment="Left" Height="60" Margin="60,224,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="161" FontSize="50"/>
     </Grid>
 </Window>
