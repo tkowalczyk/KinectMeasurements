@@ -12,4 +12,4 @@ Set of tools and extension methods to measure skeletons. To use with Kinect for 
 
 **More examples**
 
-Feel free to visit my homepage [Tomasz Kowalczyk](http://tomek.kownet.info/ "Tomasz Kowalczyk") to see more complex examples.
+Feel free to visit my homepage [Tomasz Kowalczyk](http://kownet.info/ "Tomasz Kowalczyk") to see more complex examples.
